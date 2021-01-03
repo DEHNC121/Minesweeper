@@ -1,7 +1,8 @@
 
 public class Main implements Runnable {
+    int size =60;//40 60 80
 
-    Gui gui=new Gui(10,7,3,35);
+    Gui gui=new Gui(10,10,1,size);
 
     public static void main(String[] args){
         new Thread(new Main()).start();
