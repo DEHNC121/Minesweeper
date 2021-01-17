@@ -45,6 +45,8 @@ public class Gui extends JFrame {
 
 
     private void restartGame() {
+    
+        flag_number=minesNumber;
         timerEnd=-1;
         startTimer=new Date();
         smileType=0;
@@ -107,9 +109,9 @@ public class Gui extends JFrame {
 
 
     public Gui(int nH,int nW,int spacing,int size){
-        this.top=50;
+        this.top=55;
         this.height=top+nH*size;
-        this.width=nW*size;
+        this.width=nW*size+2;
         this.numberHeight=nH;
         this.numberWidth=nW;
         this.spacing=spacing;
@@ -236,8 +238,8 @@ public class Gui extends JFrame {
         private void drawTimer(Graphics graphics) {
             graphics.setColor(Color.black);
             int sh=top-6;
-            int sw=118;
-            int x=width-sw-5;
+            int sw=126;
+            int x=width-sw-6;
             int y=spacing;
             int time;
             graphics.fillRect(x,y,sw,sh);
@@ -266,13 +268,13 @@ public class Gui extends JFrame {
                 time=9999;
             }
             if (time<10){
-                graphics.drawString("000"+Integer.toString(time),x+5,y+sh-5);
+                graphics.drawString("000"+Integer.toString(time),x+2,y+sh-5);
             }else if (time<100){
-                graphics.drawString("00"+Integer.toString(time),x+5,y+sh-5);
+                graphics.drawString("00"+Integer.toString(time),x+2,y+sh-5);
             }else if (time<1000){
-                graphics.drawString("0"+Integer.toString(time),x+5,y+sh-5);
+                graphics.drawString("0"+Integer.toString(time),x+2,y+sh-5);
             }else {
-                graphics.drawString(Integer.toString(time),x+5,y+sh-5);
+                graphics.drawString(Integer.toString(time),x+2,y+sh-5);
             }
         }
 
@@ -388,8 +390,8 @@ public class Gui extends JFrame {
 
     public void mouseUpdate(MouseEvent e) {
         leftMouse= e.getButton() == e.BUTTON3;
-        mouseX=e.getX()-7;
-        mouseY=e.getY()-30;
+        mouseX=e.getX();
+        mouseY=e.getY()-39;
     }
 
 
